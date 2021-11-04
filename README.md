@@ -6,10 +6,22 @@
 Required version(tested):
 - Ubuntu 18.04 (ROS Melodic)
 
+Hardware Information:
+- Jetson Nano Developer Kit
+- OpenCR
+- Dynamixel XL430-W250-T
+
 ## Table of Contents
+1. Project Introduction
+2. How to Start
+3. Team Information
 
 
-## Team Information
+## 1. Project Introduction
+
+## 2. How to Start
+
+## 3. Team Information
 - Jung Hwan Seok : ROS, AI Developer
-- Nam yong jae   : Hardware Developer
+- Nam Yong Jae   : Hardware Developer
 

@@ -13,10 +13,11 @@ class D2cControl
         ~D2cControl();
         void controlLoop(const ros::TimerEvent& event);
         void msgCallback(const d2c_robot_msgs::D2cRobot::ConstPtr& msg);
-
+        void publishCommands(int order);
     private:
         ros::Publisher serving_command_publisher;
         ros::Subscriber object_position_subscriber;
+        int control_order;
 
 
 };
