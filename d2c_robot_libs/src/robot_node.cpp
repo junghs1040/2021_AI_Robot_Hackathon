@@ -11,7 +11,8 @@ int main(int argc, char** argv)
     
     ros::NodeHandle nh("");
     ros::NodeHandle nh_priv("~");
-    
+
+    D2cControl d2c(&nh, &nh_priv);
     ros::spin();
     return 0;
 }

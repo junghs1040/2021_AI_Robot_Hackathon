@@ -3,6 +3,7 @@ project(d2c_robot_libs)
 
 find_package(catkin REQUIRED COMPONENTS
   roscpp
+  d2c_robot_msgs
 )
 
 find_package(Eigen3 REQUIRED)
