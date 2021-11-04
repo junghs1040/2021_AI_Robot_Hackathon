@@ -13,15 +13,18 @@ Hardware Information:
 
 ## Table of Contents
 1. Project Introduction
-2. How to Start
-3. Team Information
+2. Features
+3. How to Start
+4. Team Information
 
 
 ## 1. Project Introduction
 
-## 2. How to Start
+## 2. Features
 
-## 3. Team Information
+## 3. How to Start
+
+## 4. Team Information
 - Jung Hwan Seok : ROS, AI Developer
 - Nam Yong Jae   : Hardware Developer
 

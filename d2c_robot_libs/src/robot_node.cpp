@@ -1,4 +1,3 @@
-#include <iostream>
 #include <vector>
 #include <string>
 #include "d2c_robot_libs/robot_node.hpp"
