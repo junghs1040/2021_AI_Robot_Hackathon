@@ -9,7 +9,7 @@
 class ServingCommand
 {
     public:
-        ServingCommand();      
+        ServingCommand(int ser_com);      
         ~ServingCommand();
         void PickUpCommand();
         void PutDownCommand();
@@ -17,7 +17,8 @@ class ServingCommand
         void RobotArmPullCommand();
 
     private:
-
+        int serving_command; 
+        float joint1, joint2, joint3; //joint1 : screw , joint2 : left , joint3 :right
 };
 
 
