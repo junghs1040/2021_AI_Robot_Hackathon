@@ -9,9 +9,9 @@
 class ServingCommand
 {
     public:
-        ServingCommand(int ser_com);      
+        ServingCommand();      
         ~ServingCommand();
-        void PickUpCommand();
+        std::vector<float> PickUpCommand();
         void PutDownCommand();
         void RobotArmStrechCommand();
         void RobotArmPullCommand();
