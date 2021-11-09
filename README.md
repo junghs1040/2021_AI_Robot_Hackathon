@@ -20,13 +20,11 @@ Hardware Information:
 
 ## 1. Project Introduction
 Serving robots that are currently applied to most restaurants are half-automatic.
-
 When serving, the robot brings the bowl to the side of the table, but the customer has to move the bowl to the table by himself.
-
 The biggest problem is that you absolutely need staff to pick up the bowls.
-
 So, restaurant operators who currently use serving robots on the market require additional staff even if they have robots.
 
+#### These problems can be solved with Fully-Automatic Serving Robot.
 ## 2. Features
 
 ## 3. How to Start
