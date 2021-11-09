@@ -34,7 +34,7 @@ So, restaurant operators who currently use serving robots on the market require 
 $ roslaunch d2c_robot_description display.launch
 </code>
 </pre>
-![mail naver com](https://user-images.githubusercontent.com/19335771/140871717-e5e6f06e-6616-457a-8290-12988f6c2ae1.jpeg)
+
 
 ## 4. Team Information
 - Jung Hwan Seok : ROS, AI Developer
