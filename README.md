@@ -30,6 +30,13 @@ So, restaurant operators who currently use serving robots on the market require 
 ## 2. Features
 
 ## 3. How to Start
+#### < Quick start : rviz simulation >
+<pre>
+<code>
+$ roslaunch d2c_robot_description display.launch
+</code>
+</pre>
+
 
 ## 4. Team Information
 - Jung Hwan Seok : ROS, AI Developer
