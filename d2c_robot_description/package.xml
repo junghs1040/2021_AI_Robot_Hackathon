@@ -10,7 +10,12 @@
   <buildtool_depend>catkin</buildtool_depend>
   <depend>joint_state_publisher</depend>
   <depend>robot_state_publisher</depend>
+  <depend>rviz</depend>
   <depend>xacro</depend>
   <depend>urdf</depend>
+  <depend>joint_state_publisher_gui</depend>
+  <depend>gazebo</depend>
 
 </package>
+
+

@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<robot
+  name="d2c_description">
+  <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="-0.00043978 0.00035738 0.018027"
+        rpy="0 0 0" />
+      <mass
+        value="0.068503" />
+      <inertia
+        ixx="2.2545E-05"
+        ixy="4.7989E-09"
+        ixz="-2.6742E-08"
+        iyy="1.2893E-05"
+        iyz="-2.5548E-07"
+        izz="2.4878E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://d2c_robot_description/meshes/base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://d2c_robot_description/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="link1">
+    <inertial>
+      <origin
+        xyz="-0.0016907 0.00029083 0.020821"
+        rpy="0 0 0" />
+      <mass
+        value="0.084203" />
+      <inertia
+        ixx="3.5148E-05"
+        ixy="2.5544E-07"
+        ixz="-3.0439E-07"
+        iyy="2.1191E-05"
+        iyz="4.4082E-09"
+        izz="3.1481E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://d2c_robot_description/meshes/link1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://d2c_robot_description/meshes/link1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint1"
+    type="revolute">
+    <origin
+      xyz="-0.00056185 0.0125 0.0429"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="link1" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="3.14"
+      upper="-3.14"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="link2">
+    <inertial>
+      <origin
+        xyz="-0.015137 -0.0025994 0.097393"
+        rpy="0 0 0" />
+      <mass
+        value="0.25649" />
+      <inertia
+        ixx="0.00086048"
+        ixy="-2.5703E-07"
+        ixz="1.0049E-06"
+        iyy="0.00085527"
+        iyz="-1.0286E-05"
+        izz="5.3981E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://d2c_robot_description/meshes/link2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://d2c_robot_description/meshes/link2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint2"
+    type="revolute">
+    <origin
+      xyz="-0.0254 0.0125 0.02335"
+      rpy="0 0 0" />
+    <parent
+      link="link1" />
+    <child
+      link="link2" />
+    <axis
+      xyz="1 0 0" />
+    <limit
+      lower="3.14"
+      upper="-3.14"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="link3">
+    <inertial>
+      <origin
+        xyz="0.020034 -0.10196 -4.7366E-05"
+        rpy="0 0 0" />
+      <mass
+        value="0.081122" />
+      <inertia
+        ixx="0.00014931"
+        ixy="4.3602E-06"
+        ixz="2.2304E-09"
+        iyy="7.7135E-06"
+        iyz="-9.0825E-09"
+        izz="0.00015134" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://d2c_robot_description/meshes/link3.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://d2c_robot_description/meshes/link3.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint3"
+    type="revolute">
+    <origin
+      xyz="-0.036 -0.03025 0.18425"
+      rpy="0 0 0" />
+    <parent
+      link="link2" />
+    <child
+      link="link3" />
+    <axis
+      xyz="-1 0 0" />
+    <limit
+      lower="3.14"
+      upper="-3.14"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="link4">
+    <inertial>
+      <origin
+        xyz="0.031004 0 -0.032054"
+        rpy="0 0 0" />
+      <mass
+        value="0.0095064" />
+      <inertia
+        ixx="1.4525E-05"
+        ixy="5.5078E-21"
+        ixz="1.9918E-06"
+        iyy="1.2362E-05"
+        iyz="-3.23E-21"
+        izz="2.3908E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://d2c_robot_description/meshes/link4.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://d2c_robot_description/meshes/link4.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint4"
+    type="revolute">
+    <origin
+      xyz="0.037937 -0.184 -9.3958E-05"
+      rpy="0 0 0" />
+    <parent
+      link="link3" />
+    <child
+      link="link4" />
+    <axis
+      xyz="1 0 0" />
+    <limit
+      lower="3.14"
+      upper="-3.14"
+      effort="0"
+      velocity="0" />
+  </joint>
+</robot>
