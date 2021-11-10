@@ -6,12 +6,13 @@
 
 int main(int argc, char** argv)
 {
-    ros::init(argc, argv, "robot_node");
+    ros::init(argc, argv, "d2c_robot");
     
     ros::NodeHandle nh("");
     ros::NodeHandle nh_priv("~");
-
+    
     D2cControl d2c(&nh, &nh_priv);
+    
     ros::spin();
     return 0;
 }
