@@ -11,14 +11,14 @@ class ServingCommand
     public:
         ServingCommand();      
         ~ServingCommand();
-        std::vector<float> PickUpCommand();
-        void PutDownCommand();
-        void RobotArmStrechCommand();
+        std::vector<float> ReturnTargetPosition();
+        std::vector<float> InverseKinematics(std::vector<float> object_position);
+        std::vector<float> SetTargetPosition();
         void RobotArmPullCommand();
 
     private:
         int serving_command; 
-        float joint1, joint2, joint3; //joint1 : screw , joint2 : left , joint3 :right
+        float joint1, joint2, joint3, joint4; //joint1 : screw , joint2 : left , joint3 :right
 };
 
 

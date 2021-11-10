@@ -1,33 +1,37 @@
 #include "d2c_robot_libs/serving_command.hpp"
 
 ServingCommand::ServingCommand()
-{
-    
-    joint1 = 0.0;
-    joint2 = 0.0;
-    joint3 = 0.0;
-}
+{}
 
 ServingCommand::~ServingCommand()
 {}
 
 
-std::vector<float> ServingCommand::PickUpCommand()
+std::vector<float> ServingCommand::ReturnTargetPosition()
 {
     std::vector<float> target_joint_position_;
-    joint2 = 1.52;
-    joint3 = 1.52;
+    std::vector<float> object_position_;
+    object_position_ = SetTargetPosition();
+    target_joint_position_ = InverseKinematics(object_position_);
+
     return target_joint_position_;
 }
-void ServingCommand::PutDownCommand()
+std::vector<float> ServingCommand::InverseKinematics(std::vector<float> object_position)
 {
-    joint2 = 1.52;
-    joint3 = 1.52;
-}
-void ServingCommand::RobotArmStrechCommand()
-{
-    joint1 = 3.0; // TODO : set the length to spin rate
+    std::vector<float> target_joint_position;
 
+    //TODO : calculation 
+
+    return target_joint_position;
+}
+std::vector<float> ServingCommand::SetTargetPosition()
+{
+    std::vector<float> object_position;
+
+    //TODO : get the information of object, and save into object_position variable
+    //TODO :  - 
+
+    return object_position;
 }
 void ServingCommand::RobotArmPullCommand()
 {

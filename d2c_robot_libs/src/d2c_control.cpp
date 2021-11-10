@@ -16,8 +16,8 @@ D2cControl::~D2cControl()
 void D2cControl::controlLoop(const ros::TimerEvent& event)
 {
     std::vector<float> target_joint_position;
-    // target joint state save function
-    target_joint_position = serving_command.PickUpCommand();
+    
+    target_joint_position = serving_command.ReturnTargetPosition();
     publishCommands(target_joint_position);
 }
 
@@ -27,6 +27,7 @@ void D2cControl::ObjectDetectmsgCallback(const d2c_robot_msgs::D2cRobot::ConstPt
     float y = msg->position[1];
     float z = msg->position[2];
     ROS_INFO("Position info : %f,%f,%f", x,y,z);
+    std::vector<float> object_position = {x,y,z};
 }
 
 void D2cControl::publishCommands(std::vector<float> target_joint_position)
