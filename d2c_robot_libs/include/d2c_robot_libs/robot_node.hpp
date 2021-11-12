@@ -16,12 +16,17 @@ class D2cControl
         D2cControl(ros::NodeHandle *nh, ros::NodeHandle *nh_priv);
         ~D2cControl();
         void controlLoop(const ros::TimerEvent& event);
-        void ObjectDetectmsgCallback(const d2c_robot_msgs::D2cRobot::ConstPtr& msg);
-        void publishCommands(std::vector<double> target_joint_position);
+        void CommandmsgCallback(const d2c_robot_msgs::D2cRobot::ConstPtr& msg);
 
+        void publishCommands(std::vector<double> target_joint_position);
+        bool DynamixelCommand();
+
+        
     private:
         ros::Timer loop_timer;
         ros::Publisher serving_command_publisher;
+        ros::ServiceServer dynamixel_command;
+        
         ros::Subscriber object_position_subscriber;
         std::vector<double> target_joint_position;
         int control_command_; // 0: Initialize 1: Pick up , 2: Pull down, 3: Stretch Arm, 4:Pull Arm
