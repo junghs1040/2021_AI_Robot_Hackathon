@@ -24,26 +24,31 @@ void D2cControl::controlLoop(const ros::TimerEvent& event)
 void D2cControl::CommandmsgCallback(const d2c_robot_msgs::D2cRobot::ConstPtr& msg)
 {
 
-    float x = msg -> motion_command;
-    ROS_INFO("Command info: %f", x);
+    float motion_num = msg -> motion_command;
+    ROS_INFO("Command info: %f", motion_num);
 
-    if (x = 0) // Initialize 
+    if (motion_num = 0) // Initialize 
     {
         target_joint_position = serving_command.Initialize();
-        //dynamixel_command_publiahser.publish(target_joint_position);
+        d2c.motion = motion_num;
+        d2c.position_info = something;
     }
 
-    else if (x = 1) // Serving 
+    else if (motion_num = 1) // Serving 
     {
         target_joint_position = serving_command.Initialize();
-        //dynamixel_command_publiahser.publish(target_joint_position);
+        d2c.motion = motion_num;
+        d2c.position_info = something;        
     }
 
-    else if (x = 2) // Cleaning
+    else if (motion_num = 2) // Cleaning
     {
         target_joint_position = serving_command.Initialize();
-        //dynamixel_command_publiahser.publish(target_joint_position);
+        d2c.motion = motion_num;
+        d2c.position_info = something;
     }
+
+    dynamixel_command_publiahser.publish(d2c);
 }
 
 

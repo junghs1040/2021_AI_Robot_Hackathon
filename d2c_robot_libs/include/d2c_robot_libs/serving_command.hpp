@@ -20,6 +20,7 @@ class ServingCommand
 
     private:
         int serving_command; 
+        
         float joint1, joint2, joint3, joint4; //joint1 : screw , joint2 : left , joint3 :right
 };
 
