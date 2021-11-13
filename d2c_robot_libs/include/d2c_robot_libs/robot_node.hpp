@@ -18,7 +18,7 @@ class D2cControl
         void controlLoop(const ros::TimerEvent& event);
         void CommandmsgCallback(const d2c_robot_msgs::D2cRobot::ConstPtr& msg);
 
-        void publishCommands(std::vector<double> target_joint_position);
+        void publishCommands(std::vector<float> target_joint_position);
         bool DynamixelCommand();
 
         
@@ -28,7 +28,7 @@ class D2cControl
         ros::ServiceServer dynamixel_command;
         
         ros::Subscriber object_position_subscriber;
-        std::vector<double> target_joint_position;
+        std::vector<float> target_joint_position;
         int control_command_; // 0: Initialize 1: Pick up , 2: Pull down, 3: Stretch Arm, 4:Pull Arm
         ServingCommand serving_command;
         sensor_msgs::JointState joint_state;

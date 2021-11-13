@@ -7,7 +7,7 @@ D2cControl::D2cControl(ros::NodeHandle *nh, ros::NodeHandle *nh_priv)
     serving_command_publisher = nh->advertise<sensor_msgs::JointState>("joint_states", 1); // rviz simulation
     //dynamixel_command = n -> advertiseService("dynamixel_position_command", DynamixelCommand);
     
-    object_position_subscriber = nh ->subscribe("position_info_msg", 1000, &D2cControl::CommandmsgCallback, this);
+    object_position_subscriber = nh ->subscribe("d2c_robot_msg", 1000, &D2cControl::CommandmsgCallback, this);
     
     loop_timer = nh_priv->createTimer(ros::Duration(1/loop_rate), &D2cControl::controlLoop, this);
 }
@@ -17,22 +17,20 @@ D2cControl::~D2cControl()
 
 void D2cControl::controlLoop(const ros::TimerEvent& event)
 {
-    
     target_joint_position = serving_command.ReturnTargetPosition();
     publishCommands(target_joint_position);
 }
 
 void D2cControl::CommandmsgCallback(const d2c_robot_msgs::D2cRobot::ConstPtr& msg)
 {
-    double x = msg->position[0];
-    double y = msg->position[1];
-    double z = msg->position[2];
-    ROS_INFO("Position info : %f,%f,%f", x,y,z);
-    std::vector<double> object_position = {x,y,z};
+
+    float x = msg -> motion_command;
+    ROS_INFO("Command info: %f", x);
+    
 }
 
 
-void D2cControl::publishCommands(std::vector<double> target_joint_position)
+void D2cControl::publishCommands(std::vector<float> target_joint_position)
 {
     // joint_state publisher to RVIZ SIMULATION
     joint_state.header.stamp = ros::Time::now();

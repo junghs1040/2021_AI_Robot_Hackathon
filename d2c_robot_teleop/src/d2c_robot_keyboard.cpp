@@ -10,60 +10,28 @@
 // Map for movement keys
 std::map<char, std::vector<float>> moveBindings
 {
-  {'w', { 1,  0,  0, 0, 0, 0}},  // GO
-  {'a', { 0, -1,  0, 0, 0, 0}}, // LEFT
-  {'s', {-1,  0,  0, 0, 0, 0}},  // BACK
-  {'d', { 0,  1,  0, 0, 0, 0}}, // RIGHT
-
-  {'t', { 0,  0,  1,  0,  0,  0}},  // UP
-  {'b', { 0,  0, -1,  0,  0,  0}},  // DOWN
-
-  {',', { 0,  0, 0,  -1,  0,  0}},  // TURN COUNTER CLOCKWISE  - X-axis
-  {'.', { 0,  0, 0,   1,  0,  0}},  // TURN CLOCKWISE - X-axis
-
-  {'<', { 0,  0,  0,  0, -1,  0}},  // TURN COUNTER CLOCKWISE  - Y-axis
-  {'>', { 0,  0,  0,  0,  1,  0}},  // TURN CLOCKWISE - Y-axis
-
-  {'q', { 0,  0,  0,  0,  0, -1}},   // TURN COUNTER CLOCKWISE - Z-axis
-  {'e', { 0,  0,  0,  0,  0,  1}}   // TURN CLOCKWISE  - Z-axis
-
+  {'q', {0.0}},  // Initialize
+  {'w', {1.0}}, // Serving motion
+  {'e', {2.0}},  // Cleaning motion
+  
  
-};
-
-// Map for speed keys
-std::map<char, std::vector<float>> gaitControlBindings
-{
-  {'u', {1}},  // walking gait
-  {'z', {0.9, 0.9}},
-  {'w', {1.1, 1}},
-  {'x', {0.9, 1}},
-
 };
 
 // Reminder message
 const char* msg = R"(
-Reading from the keyboard and Publishing to Twist!
+Hi! this is Serving Robot Controller!
 ---------------------------
-Moving around :
-        w     
-   a    s    d
+Motion Command :
+q : Initialize
+w : Serving Motion
+e : Cleaning Motion
            
-Turn around :
----------------------------
-   X-axis ["." = CW "," = CCW]
-   Y-axis [">" = CW "<" = CCW]
-   Z-axis ["q" = CW "e" = CCW]
-t : up (+z)
-b : down (-z)
-anything else : stop
+anything else : Initialize
 
 CTRL-C to quit
 )";
 
-// Init variables
-float num(0.0); // Gait Mode 
-//float turn(1.0); // Angular velocity (rad/s)
-float x(0), y(0), z(0), x_t(0), y_t(0), z_t(0); // Forward/backward/neutral direction vars
+float x(0); 
 char key(' ');
 
 // For non-blocking keyboard inputs
@@ -118,37 +86,14 @@ int main(int argc, char** argv)
     // If the key corresponds to a key in moveBindings
     if (moveBindings.count(key) == 1)
     {
-
-      // Grab the direction data
       x = moveBindings[key][0];
-      y = moveBindings[key][1];
-      z = moveBindings[key][2];
-      x_t = moveBindings[key][3];
-      y_t = moveBindings[key][4];
-      z_t = moveBindings[key][5];
-
-
       printf("\rLast command: %c   ", key);
     }
 
-    // Otherwise if it corresponds to a key in speedBindings
-     else if (gaitControlBindings.count(key) == 1) //gait
-    {
-      // Grab the speed data
-      num = gaitControlBindings[key][0];
-
-      printf("\rGait num %f | Last command: %c   ", num, key);
-    }
-    
-    // Otherwise, set the robot to stop
+    // Otherwise, set the robot to initialize position
     else
     {
       x = 0;
-      y = 0;
-      z = 0;
-      x_t = 0;
-      y_t = 0;
-      z_t = 0;
 
       // If ctrl-C (^C) was pressed, terminate the program
       if (key == '\x03')
@@ -159,13 +104,13 @@ int main(int argc, char** argv)
 
       printf("\rInvalid command! %c", key);
     }
-    ROS_INFO("%f, %f, %f", x,y,z);
+    ROS_INFO("%f", x);
     // Update the Twist message
-    d2c.linear={x,y,z};
-    d2c.angular={x_t,y_t,z_t};
-    d2c.control_num = {num};
+    d2c.motion_command=x;
+    
     // Publish it and resolve any remaining callbacks
     pub.publish(d2c);
+    
     ros::spinOnce();
   }
 

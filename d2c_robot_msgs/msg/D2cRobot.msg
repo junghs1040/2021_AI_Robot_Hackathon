@@ -1,4 +1,2 @@
-float64[] linear
-float64[] angular
-float64 control_num
-float64[] position
+float64 motion_command
+

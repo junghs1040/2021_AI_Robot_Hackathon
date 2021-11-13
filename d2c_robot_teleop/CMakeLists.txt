@@ -10,11 +10,11 @@ find_package(catkin REQUIRED COMPONENTS
 
 #add_message_files(
 #  FILES
-#  Mintchoco1Control.msg
+#  D2cRobot.msg
 #)
 
 #generate_messages(
-#  DEPENDENCIES
+#  DEPENDENCIES 
 #)
 
 catkin_package(
