@@ -8,6 +8,7 @@
 #include "sensor_msgs/JointState.h"
 #include "d2c_robot_libs/serving_command.hpp"
 #include "d2c_robot_msgs/D2cRobot.h"
+#include "d2c_robot_msgs/DynamixelCommand.h"
 
 
 class D2cControl
@@ -25,6 +26,7 @@ class D2cControl
     private:
         ros::Timer loop_timer;
         ros::Publisher serving_command_publisher;
+        ros::Publisher dynamixel_command_publiahser;
         ros::ServiceServer dynamixel_command;
         
         ros::Subscriber object_position_subscriber;

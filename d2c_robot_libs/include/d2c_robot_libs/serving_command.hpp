@@ -14,7 +14,9 @@ class ServingCommand
         std::vector<float> ReturnTargetPosition();
         std::vector<float> InverseKinematics(std::vector<float> object_position);
         std::vector<float> SetTargetPosition();
-        void RobotArmPullCommand();
+        std::vector<float> Initialize();
+        std::vector<float> Serving();
+        std::vector<float> Cleaning(std::vector<float> object_position);
 
     private:
         int serving_command; 

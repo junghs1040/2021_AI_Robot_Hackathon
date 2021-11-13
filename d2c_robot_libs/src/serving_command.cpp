@@ -34,7 +34,22 @@ std::vector<float> ServingCommand::SetTargetPosition()
 
     return object_position;
 }
-void ServingCommand::RobotArmPullCommand()
+
+std::vector<float> ServingCommand::Initialize()
 {
-    joint1 = 0.0;
+    std::vector<float> initialize_position;
+    initialize_position = {1.52, 0.0, 0.0, 0.0};
+    return initialize_position;
+}
+
+std::vector<float> ServingCommand::Serving()
+{
+    std::vector<float> serving_position;
+    return serving_position;
+}
+
+std::vector<float> ServingCommand::Cleaning(std::vector<float> object_position)
+{
+    std::vector<float> cleaning_position;
+    return cleaning_position;
 }

@@ -4,10 +4,10 @@ D2cControl::D2cControl(ros::NodeHandle *nh, ros::NodeHandle *nh_priv)
 {
     double loop_rate = 100.0;
     
-    serving_command_publisher = nh->advertise<sensor_msgs::JointState>("joint_states", 1); // rviz simulation
-    //dynamixel_command = n -> advertiseService("dynamixel_position_command", DynamixelCommand);
+    serving_command_publisher = nh -> advertise<sensor_msgs::JointState>("joint_states", 1); // rviz simulation
+    dynamixel_command_publiahser = nh -> advertise<d2c_robot_msgs::DynamixelCommand>("dynamixel_position_command", 1);
     
-    object_position_subscriber = nh ->subscribe("d2c_robot_msg", 1000, &D2cControl::CommandmsgCallback, this);
+    object_position_subscriber = nh -> subscribe("d2c_robot_msg", 1000, &D2cControl::CommandmsgCallback, this);
     
     loop_timer = nh_priv->createTimer(ros::Duration(1/loop_rate), &D2cControl::controlLoop, this);
 }
@@ -26,7 +26,24 @@ void D2cControl::CommandmsgCallback(const d2c_robot_msgs::D2cRobot::ConstPtr& ms
 
     float x = msg -> motion_command;
     ROS_INFO("Command info: %f", x);
-    
+
+    if (x = 0) // Initialize 
+    {
+        target_joint_position = serving_command.Initialize();
+        //dynamixel_command_publiahser.publish(target_joint_position);
+    }
+
+    else if (x = 1) // Serving 
+    {
+        target_joint_position = serving_command.Initialize();
+        //dynamixel_command_publiahser.publish(target_joint_position);
+    }
+
+    else if (x = 2) // Cleaning
+    {
+        target_joint_position = serving_command.Initialize();
+        //dynamixel_command_publiahser.publish(target_joint_position);
+    }
 }
 
 
