@@ -9,6 +9,7 @@
 #include "d2c_robot_libs/serving_command.hpp"
 #include "d2c_robot_msgs/D2cRobot.h"
 #include "d2c_robot_msgs/DynamixelCommand.h"
+#include <std_srvs/Trigger.h>
 
 
 class D2cControl
@@ -26,8 +27,9 @@ class D2cControl
     private:
         ros::Timer loop_timer;
         ros::Publisher serving_command_publisher;
-        ros::Publisher dynamixel_command_publiahser;
+        ros::Publisher dynamixel_command_publisher;
         ros::ServiceServer dynamixel_command;
+        ros::ServiceClient client;
         
         ros::Subscriber object_position_subscriber;
         std::vector<float> target_joint_position;

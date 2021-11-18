@@ -5,9 +5,10 @@ D2cControl::D2cControl(ros::NodeHandle *nh, ros::NodeHandle *nh_priv)
     double loop_rate = 100.0;
     
     serving_command_publisher = nh -> advertise<sensor_msgs::JointState>("joint_states", 1); // rviz simulation
-    dynamixel_command_publiahser = nh -> advertise<d2c_robot_msgs::DynamixelCommand>("dynamixel_position_command", 1);
+    dynamixel_command_publisher = nh -> advertise<d2c_robot_msgs::DynamixelCommand>("dynamixel_workbench/dynamixel_position_command", 1);
     
     object_position_subscriber = nh -> subscribe("d2c_robot_msg", 1000, &D2cControl::CommandmsgCallback, this);
+    client =nh -> serviceClient<std_srvs::Trigger>("/dynamixel_workbench/execution");
     
     loop_timer = nh_priv->createTimer(ros::Duration(1/loop_rate), &D2cControl::controlLoop, this);
 }
@@ -48,7 +49,8 @@ void D2cControl::CommandmsgCallback(const d2c_robot_msgs::D2cRobot::ConstPtr& ms
         d2c.position_info = something;
     }
 
-    dynamixel_command_publiahser.publish(d2c);
+    dynamixel_command_publisher.publish(d2c);
+    //client.call("{}");
 }
 
 

@@ -13,7 +13,7 @@
     name="rviz"
     pkg="rviz"
     type="rviz"
-    args="-d $(find d2c_robot_description)/urdf.rviz" />
+    args="-d $(find d2c_robot_description)/d2c_robot.rviz" />
 
   <node name ="robot_node" pkg="d2c_robot_libs" type="robot_node" output="screen"/>
 
