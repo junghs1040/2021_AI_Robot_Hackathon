@@ -93,7 +93,7 @@ int main(int argc, char** argv)
     // Otherwise, set the robot to initialize position
     else
     {
-      x = 0;
+      x = 0.0;
 
       // If ctrl-C (^C) was pressed, terminate the program
       if (key == '\x03')
@@ -106,7 +106,7 @@ int main(int argc, char** argv)
     }
     ROS_INFO("%f", x);
     // Update the Twist message
-    d2c.motion_command=x;
+    d2c.motion_command = x;
     
     // Publish it and resolve any remaining callbacks
     pub.publish(d2c);

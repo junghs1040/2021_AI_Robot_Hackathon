@@ -28,27 +28,24 @@ void D2cControl::CommandmsgCallback(const d2c_robot_msgs::D2cRobot::ConstPtr& ms
     float motion_num = msg -> motion_command;
     ROS_INFO("Command info: %f", motion_num);
 
-    if (motion_num = 0) // Initialize 
-    {
-        target_joint_position = serving_command.Initialize();
-        d2c.motion = motion_num;
-        d2c.position_info = something;
-    }
+    //if (motion_num = 0.0) // Initialize 
+    //{
+    //    target_joint_position = serving_command.Initialize();
+    //}
 
-    else if (motion_num = 1) // Serving 
-    {
-        target_joint_position = serving_command.Initialize();
-        d2c.motion = motion_num;
-        d2c.position_info = something;        
-    }
+    //else if (motion_num = 1.0) // Serving 
+    //{
+    //    target_joint_position = serving_command.Initialize();        
+    //}
 
-    else if (motion_num = 2) // Cleaning
-    {
-        target_joint_position = serving_command.Initialize();
-        d2c.motion = motion_num;
-        d2c.position_info = something;
-    }
+    //else if (motion_num = 2.0) // Cleaning
+    //{
+    //    target_joint_position = serving_command.Initialize(); 
+    //}
 
+    d2c.motion = motion_num;
+    d2c.position_info = something;
+    ROS_INFO("Command info: %f", motion_num);
     dynamixel_command_publisher.publish(d2c);
     //client.call("{}");
 }
