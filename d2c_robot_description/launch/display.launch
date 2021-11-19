@@ -3,8 +3,11 @@
     name="model" />
   <param
     name="robot_description"
-    textfile="$(find d2c_robot_description)/urdf/d2c_description.urdf" />
-
+    textfile="$(find d2c_robot_description)/urdf/d2c_robot_description.urdf" />
+  <node
+    name="joint_state_publisher_gui"
+    pkg="joint_state_publisher_gui"
+    type="joint_state_publisher_gui" />
   <node
     name="robot_state_publisher"
     pkg="robot_state_publisher"
@@ -14,7 +17,5 @@
     pkg="rviz"
     type="rviz"
     args="-d $(find d2c_robot_description)/d2c_robot.rviz" />
-
-  <node name ="robot_node" pkg="d2c_robot_libs" type="robot_node" output="screen"/>
 
 </launch>
