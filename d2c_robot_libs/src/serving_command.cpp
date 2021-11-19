@@ -7,7 +7,7 @@ ServingCommand::~ServingCommand()
 {}
 
 
-std::vector<float> ServingCommand::ReturnTargetPosition()
+std::vector<float> ServingCommand::ReturnTargetJointPosition(int xmin, int ymin, int xmax, int ymax)
 {
     std::vector<float> target_joint_position_ = {1.52, 0.0, 0.0, 0.0};
     //std::vector<double> object_position_;

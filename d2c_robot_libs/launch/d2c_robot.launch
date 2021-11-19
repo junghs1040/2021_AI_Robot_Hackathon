@@ -9,11 +9,6 @@
     name="robot_state_publisher"
     pkg="robot_state_publisher"
     type="robot_state_publisher" />
-  <node
-    name="rviz"
-    pkg="rviz"
-    type="rviz"
-    args="-d $(find d2c_robot_description)/urdf.rviz" />
 
   <node name ="robot_node" pkg="d2c_robot_libs" type="robot_node" output="screen"/>
   <node name ="d2c_robot_keyboard" pkg="d2c_robot_teleop" type="d2c_robot_keyboard" output="screen"/>
