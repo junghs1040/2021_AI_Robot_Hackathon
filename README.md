@@ -37,6 +37,23 @@ $ roslaunch d2c_robot_description display.launch
 
 ![mail naver com](https://user-images.githubusercontent.com/19335771/142581467-6c7ccb58-d063-4bc8-b28f-a68cbcc55d91.jpeg)
 
+#### < d2c robot control >
+<pre>
+<code>
+$ roslaunch d2c_robot_libs d2c_robot.launch //keyboard control
+$ roslaunch dynamixel_workbench_controller dynamixel_controller.launch 
+$ roslaunch dynamixel_workbench_operator joint_operator.launch
+</code>
+</pre>
+
+#### < YOLOv3-tiny boul detection >
+<pre>
+<code>
+$ roslaunch darknet_ros darknet_ros.launch
+$ roslaunch usb_cam usb_cam-test.launch
+</code>
+</pre>
+
 ## 4. Team Information
 - Jung Hwan Seok : ROS, AI Developer
 - Nam Yong Jae   : Hardware Developer
