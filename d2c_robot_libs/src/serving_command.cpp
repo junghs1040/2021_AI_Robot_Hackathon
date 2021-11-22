@@ -7,20 +7,21 @@ ServingCommand::~ServingCommand()
 {}
 
 
-std::vector<float> ServingCommand::ReturnTargetJointPosition(int xmin, int ymin, int xmax, int ymax)
+std::vector<float> ServingCommand::ReturnTargetJointPosition()
 {
     std::vector<float> target_joint_position_ = {1.52, 0.0, 0.0, 0.0};
-    //std::vector<double> object_position_;
-    //object_position_ = SetTargetPosition();
-    //target_joint_position_ = InverseKinematics(object_position_);
-
+    std::vector<int> object_position = TransformCoordinate();
+    target_joint_position_ = InverseKinematics(object_position);
     return target_joint_position_;
 }
-std::vector<float> ServingCommand::InverseKinematics(std::vector<float> object_position)
+std::vector<float> ServingCommand::InverseKinematics(std::vector<int> object_position)
 {
     std::vector<float> target_joint_position;
-
-    //TODO : calculation 
+    int x = object_position[0];
+    int y = object_position[1];
+    float object_x = (float)x;
+    float object_y = (float)y;
+    //TODO : calculate inverse kinematics
 
     return target_joint_position;
 }
@@ -42,13 +43,18 @@ std::vector<float> ServingCommand::Initialize()
     return initialize_position;
 }
 
-std::vector<float> ServingCommand::Serving()
+std::vector<int> ServingCommand::TransformCoordinate()
 {
-    std::vector<float> serving_position;
+    std::vector<int> serving_position;
+    int x = object_x_;
+    int y = object_y_;
+    // transform coordination 
+    serving_position = {x,y};
+
     return serving_position;
 }
 
-std::vector<float> ServingCommand::Cleaning(std::vector<float> object_position)
+std::vector<float> ServingCommand::Cleaning()
 {
     std::vector<float> cleaning_position;
     return cleaning_position;

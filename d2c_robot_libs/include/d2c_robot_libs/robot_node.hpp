@@ -43,6 +43,8 @@ class D2cControl
         sensor_msgs::JointState joint_state;
         d2c_robot_msgs::DynamixelCommand d2c;
         std::vector<std::string> joint_name = {"joint1","joint2","joint3","joint4"};
+        int x_min, y_min, x_max, y_max;
+        int object_x, object_y;
 };
 
 

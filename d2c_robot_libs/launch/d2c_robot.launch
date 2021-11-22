@@ -3,7 +3,7 @@
     name="model" />
   <param
     name="robot_description"
-    textfile="$(find d2c_robot_description)/urdf/d2c_description.urdf" />
+    textfile="$(find d2c_robot_description)/urdf/d2c_robot_description.urdf" />
 
   <node
     name="robot_state_publisher"

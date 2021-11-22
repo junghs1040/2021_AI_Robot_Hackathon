@@ -35,12 +35,12 @@ void D2cControl::CommandmsgCallback(const d2c_robot_msgs::D2cRobot::ConstPtr& ms
 
     else if (motion_num == 1.0) // Serving 
     {
-        target_joint_position = serving_command.Initialize();        
+        target_joint_position = serving_command.ReturnTargetJointPosition();        
     }
 
     else if (motion_num == 2.0) // Cleaning
     {
-        target_joint_position = serving_command.Initialize(); 
+        target_joint_position = serving_command.ReturnTargetJointPosition(); 
     }
 
     d2c.motion = motion_num;
@@ -57,9 +57,18 @@ void D2cControl::ObjectmsgCallback(const darknet_ros_msgs::BoundingBoxes::ConstP
     int ymin = msg -> bounding_boxes[0].ymin;
     int xmax = msg -> bounding_boxes[0].xmax;
     int ymax = msg -> bounding_boxes[0].ymax;
-    //std::char object_name = msg -> bounding_boxes[0].Class;
-    ROS_INFO("%d, %d, %d, %d, %f",xmin, ymin, xmax, ymax, probability);
+    std::string object_name = msg -> bounding_boxes[0].Class;
+    
 
+    if (object_name == "bowl")
+    {
+        ROS_INFO("%d, %d, %d, %d, %f, %s",xmin, ymin, xmax, ymax, probability, object_name.c_str());
+        object_x = (xmin+xmax)/2;
+        object_y = (ymin+ymax)/2;
+        serving_command.object_x_ = object_x;
+        serving_command.object_y_ = object_y;
+        ROS_INFO("%d, %d", object_x, object_y);
+    }
     //std::vector<float> dd = serving_command.ReturnTargetJointPosition(xmin, ymin, xmax, ymax);
     
 }
