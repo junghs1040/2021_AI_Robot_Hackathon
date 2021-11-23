@@ -3,6 +3,7 @@
 ### 2021 마곡 AI 로봇 해커톤 팀 D2C
 ### Fully Automatic Serving Robot
 [![melodic-devel Status](https://github.com/ROBOTIS-GIT/dynamixel-workbench/workflows/melodic-devel/badge.svg)](https://github.com/ROBOTIS-GIT/dynamixel-workbench/tree/melodic-devel)
+
 Required version(tested):
 - Ubuntu 18.04 (ROS Melodic)
 
