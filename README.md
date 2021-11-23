@@ -64,3 +64,5 @@ $ roslaunch usb_cam usb_cam-test.launch
 - Jung Hwan Seok : ROS, AI Developer
 - Nam Yong Jae   : Hardware Developer
 
+[Hackathon homepage](https://m-hackathon.tistory.com/)
+
