@@ -26,6 +26,11 @@ So, restaurant operators who currently use serving robots on the market require 
 
 #### These problems can be solved with Fully-Automatic Serving Robot.
 ## 2. Features
+the robot uses the usb camera to detect the object(bowl)
+we use YOLOv3-tiny to detect the object
+
+If the robot detected the object(bowl) and position 
+then the robot will calculate inverse kinematics of the manipulator and move the manipulator to object.
 
 ## 3. Related Source
 - [darknet_ros](https://github.com/leggedrobotics/darknet_ros)
