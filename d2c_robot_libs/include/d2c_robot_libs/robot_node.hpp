@@ -10,6 +10,7 @@
 
 #include "d2c_robot_msgs/D2cRobot.h"
 #include "d2c_robot_msgs/DynamixelCommand.h"
+#include "d2c_robot_msgs/JointPosition.h"
 #include "darknet_ros_msgs/BoundingBoxes.h"
 #include "darknet_ros_msgs/BoundingBox.h"
 #include <std_srvs/Trigger.h>

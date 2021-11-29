@@ -42,9 +42,10 @@ void D2cControl::CommandmsgCallback(const d2c_robot_msgs::D2cRobot::ConstPtr& ms
     {
         target_joint_position = serving_command.ReturnTargetJointPosition(); 
     }
-
+    //std::vector<double> pos = {0.0,0.0,0.0,0.0};
     d2c.motion = motion_num;
     d2c.position_info = something;
+    //d2c.joint_position.push_back(pos);
     ROS_INFO("Command info: %f", motion_num);
     dynamixel_command_publisher.publish(d2c);
 

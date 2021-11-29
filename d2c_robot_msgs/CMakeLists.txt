@@ -9,7 +9,7 @@ find_package(catkin REQUIRED COMPONENTS
 
 add_message_files(
   DIRECTORY msg
-  FILES D2cRobot.msg DynamixelCommand.msg
+  FILES D2cRobot.msg DynamixelCommand.msg JointPosition.msg
 )
 
 generate_messages(
