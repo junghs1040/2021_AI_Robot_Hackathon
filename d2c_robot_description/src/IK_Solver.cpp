@@ -27,8 +27,8 @@ std::vector<double> Robot::Leg_IK(std::vector<double> final_value)
     theta2 =3.14/2 -beta -theta2_off -alpha;
 
     double a1 = 3.14 - beta - (theta3 + 3.14/2 + theta2_off);
-    double a2 = 3.14/2-atan2(sqrt(x*x+y*y),z);
-    theta4 = -a1-a2;
+    double a2 = atan2(sqrt(x*x+y*y),z);
+    theta4 = 3.14/2-a1-a2;
 
     joint_state_ = {-theta1, -theta2, theta3, theta4};
 
