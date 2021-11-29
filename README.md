@@ -1,7 +1,5 @@
 # 2021 AI Robot Hackathon in MAGOK
-
-### 2021 마곡 AI 로봇 해커톤 팀 D2C
-### Fully Automatic Serving Robot
+### Team D2C : Fully Automatic Serving Robot
 [![melodic-devel Status](https://github.com/ROBOTIS-GIT/dynamixel-workbench/workflows/melodic-devel/badge.svg)](https://github.com/ROBOTIS-GIT/dynamixel-workbench/tree/melodic-devel)
 
 Required version(tested):
@@ -15,7 +13,7 @@ Hardware Information:
 ## Table of Contents
 1. Project Introduction
 2. Features
-3. Related Open Source
+3. Related Source
 4. How to Start
 5. Team Information
 
@@ -29,9 +27,11 @@ So, restaurant operators who currently use serving robots on the market require 
 #### These problems can be solved with Fully-Automatic Serving Robot.
 ## 2. Features
 
-## 3. Related Open Source
+## 3. Related Source
 - [darknet_ros](https://github.com/leggedrobotics/darknet_ros)
 - [dynamixel_sdk](https://github.com/ROBOTIS-GIT/DynamixelSDK)
+- [custom dynamixel_workbench](https://github.com/junghs1040/dynamixel-workbench)
+- [ros-drivers/usb_cam](https://github.com/ros-drivers/usb_cam)
 
 ## 4. How to Start
 #### < Quick start : rviz simulation >
@@ -64,5 +64,5 @@ $ roslaunch usb_cam usb_cam-test.launch
 - Jung Hwan Seok : ROS, AI Developer
 - Nam Yong Jae   : Hardware Developer
 
-[Hackathon homepage](https://m-hackathon.tistory.com/)
+#### Hackathon homepage : https://m-hackathon.tistory.com/
 
