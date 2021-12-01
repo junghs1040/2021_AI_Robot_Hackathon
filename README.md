@@ -53,7 +53,7 @@ $ roslaunch d2c_robot_description display.launch
 <code>
 $ roslaunch d2c_robot_libs d2c_robot.launch //keyboard control
 $ roslaunch dynamixel_workbench_controller dynamixel_controller.launch 
-$ roslaunch dynamixel_workbench_operator joint_operator.launch
+$ roslaunch dynamixel_workbench_operator my_operator.launch
 </code>
 </pre>
 

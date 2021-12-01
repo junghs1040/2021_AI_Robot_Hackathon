@@ -7,11 +7,11 @@ ServingCommand::~ServingCommand()
 {}
 
 
-std::vector<double> ServingCommand::ReturnTargetJointPosition()
+std::vector<std::vector<double>> ServingCommand::ReturnTargetJointPosition(std::vector<int> object_position)
 {
-    std::vector<double> target_joint_position_;
-    std::vector<double> object_position;
-    target_joint_position_ = InverseKinematics(object_position);
+    std::vector<std::vector<double>> target_joint_position_;
+    std::vector<double> object_position_;
+   // target_joint_position_ = InverseKinematics(object_position_);
     return target_joint_position_;
 }
 
