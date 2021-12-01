@@ -106,6 +106,7 @@ int main(int argc, char** argv)
     }
     ROS_INFO("%f", x);
     // Update the Twist message
+
     d2c.motion_command = x;
     
     // Publish it and resolve any remaining callbacks

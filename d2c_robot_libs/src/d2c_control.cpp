@@ -30,7 +30,7 @@ void D2cControl::CommandmsgCallback(const d2c_robot_msgs::D2cRobot::ConstPtr& ms
 
     if (motion_num == 0.0) // Initialize 
     {
-        target_joint_position = serving_command.Initialize();
+        //target_joint_position = serving_command.Initialize();
     }
 
     else if (motion_num == 1.0) // Serving 

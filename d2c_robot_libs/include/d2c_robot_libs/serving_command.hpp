@@ -11,8 +11,8 @@ class ServingCommand
     public:
         ServingCommand();      
         ~ServingCommand();
-        std::vector<float> ReturnTargetJointPosition();
-        std::vector<float> InverseKinematics(std::vector<int> object_position);
+        std::vector<double> ReturnTargetJointPosition();
+        std::vector<double> InverseKinematics(std::vector<double> final_value);
         std::vector<float> SetTargetPosition();
         std::vector<float> Initialize();
         std::vector<int> TransformCoordinate();
