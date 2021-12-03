@@ -39,25 +39,24 @@ void D2cControl::CommandmsgCallback(const d2c_robot_msgs::D2cRobot::ConstPtr& ms
         //target_joint_position = serving_command.ReturnTargetJointPosition();        
     }
     
-    else if (motion_num == 2.0) // Cleaning
+    else if (motion_num == 2.0) // Cleaning // TODO : bool && needed to confirm object position is getted
     {
+        for(int i = 0; i < 2; i++)
+        {
+            d2c_robot_msgs::JointPosition position_info;
+
+            for(int j = 0; j < 4; j++)
+            {
+                position_info.positions.push_back(target_joint_position[i][j]);
+            }
+            d2c.joint_position.push_back(position_info);
+        }
         target_joint_position = serving_command.ReturnTargetJointPosition(); 
     }
     
     d2c.motion = motion_num;
     d2c.position_info = something;
     
-    for(int i = 0; i < 2; i++)
-    {
-        d2c_robot_msgs::JointPosition position_info;
-
-        for(int j = 0; j < 4; j++)
-        {
-            position_info.positions.push_back(target_joint_position[i][j]);
-        }
-        d2c.joint_position.push_back(position_info);
-    }
-
     ROS_INFO("Command info: %f", motion_num);
     dynamixel_command_publisher.publish(d2c);
 

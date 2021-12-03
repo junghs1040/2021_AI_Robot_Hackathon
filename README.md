@@ -26,6 +26,8 @@ So, restaurant operators who currently use serving robots on the market require 
 
 #### These problems can be solved with Fully-Automatic Serving Robot.
 ## 2. Features
+d2c means that "delivery to(2) customer", we are developing the delivery and serving robot.
+
 the robot uses the usb camera to detect the object(bowl).
 we use YOLOv3-tiny to detect the object
 
@@ -66,8 +68,8 @@ $ roslaunch usb_cam usb_cam-test.launch
 </pre>
 
 ## 5. Team Information
-- Jung Hwan Seok
-- Nam Yong Jae   
+- Jung Hwan Seok (Hanyang univ. Mechanical Engineering) 
+- Nam Yong Jae (Hanyang univ. Mechanical Engineering) 
 
 #### Hackathon homepage : https://m-hackathon.tistory.com/
 
