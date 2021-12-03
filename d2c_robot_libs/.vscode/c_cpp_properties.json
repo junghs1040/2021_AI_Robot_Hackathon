@@ -6,7 +6,8 @@
                 "${workspaceFolder}/**",
                 "/opt/ros/melodic/include",
                 "${workspaceFolder}/include",
-                "${workspaceFolder}/d2c_robot_msgs"
+                "${workspaceFolder}/d2c_robot_msgs",
+                "/usr/include/eigen3"
             ],
             "defines": [],
             "compilerPath": "/usr/bin/gcc",

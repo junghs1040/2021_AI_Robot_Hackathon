@@ -69,7 +69,7 @@ std::vector<int> ServingCommand::TransformCoordinate()
 std::vector<std::vector<double>> ServingCommand::SetTargetPosition()
 {
     std::vector<std::vector<double>> object_position;
-
+     
     // TODO : get the information of object, and save into object_position variable
      
     // TODO : target position 1. before object 2. on object 3. up the object 
@@ -89,4 +89,34 @@ std::vector<float> ServingCommand::Cleaning()
 {
     std::vector<float> cleaning_position;
     return cleaning_position;
+}
+
+Eigen::Matrix3d ServingCommand::Rx(double theta)
+{
+    double omega = theta;
+    R_x <<  1.0, 0.0, 0.0,
+           0.0, cos(omega),-sin(omega),
+           0.0, sin(omega), cos(omega);
+
+    return R_x;
+}
+
+Eigen::Matrix3d ServingCommand::Ry(double theta)
+{
+    double phi = theta;
+    R_y <<  cos(phi), 0.0, sin(phi),
+           0.0, 1.0, 0.0,
+           -sin(phi), 0.0, cos(phi);
+
+    return R_y;
+}
+
+Eigen::Matrix3d ServingCommand::Rz(double theta)
+{
+    double psi = theta;
+    R_z <<  cos(psi), -sin(psi), 0.0,
+           sin(psi), cos(psi), 0.0,
+           0.0, 0.0, 1.0;
+
+    return R_z;
 }

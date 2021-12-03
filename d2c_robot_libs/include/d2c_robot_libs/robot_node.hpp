@@ -14,6 +14,7 @@
 #include "darknet_ros_msgs/BoundingBoxes.h"
 #include "darknet_ros_msgs/BoundingBox.h"
 #include <std_srvs/Trigger.h>
+#include <Eigen/Dense>
 
 
 class D2cControl
@@ -47,6 +48,7 @@ class D2cControl
         int x_min, y_min, x_max, y_max;
         int object_x = 0;
         int object_y = 0;
+
 };
 
 
