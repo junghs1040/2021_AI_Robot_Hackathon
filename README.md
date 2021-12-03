@@ -29,8 +29,8 @@ So, restaurant operators who currently use serving robots on the market require 
 the robot uses the usb camera to detect the object(bowl).
 we use YOLOv3-tiny to detect the object
 
-If the robot detected the object(bowl) and position 
-then the robot will calculate inverse kinematics of the manipulator and move the manipulator to object.
+If the robot detected the object(bowl) and its position. 
+then the robot will calculate inverse kinematics of the manipulator and move the manipulator to the object.
 
 ## 3. Related Source
 - [darknet_ros](https://github.com/leggedrobotics/darknet_ros)
@@ -66,8 +66,8 @@ $ roslaunch usb_cam usb_cam-test.launch
 </pre>
 
 ## 5. Team Information
-- Jung Hwan Seok : ROS, AI Developer
-- Nam Yong Jae   : Hardware Developer
+- Jung Hwan Seok
+- Nam Yong Jae   
 
 #### Hackathon homepage : https://m-hackathon.tistory.com/
 

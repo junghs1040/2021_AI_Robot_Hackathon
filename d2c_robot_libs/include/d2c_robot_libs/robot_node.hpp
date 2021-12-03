@@ -45,7 +45,8 @@ class D2cControl
         d2c_robot_msgs::DynamixelCommand d2c;
         std::vector<std::string> joint_name = {"joint1","joint2","joint3","joint4"};
         int x_min, y_min, x_max, y_max;
-        int object_x, object_y;
+        int object_x = 0;
+        int object_y = 0;
 };
 
 

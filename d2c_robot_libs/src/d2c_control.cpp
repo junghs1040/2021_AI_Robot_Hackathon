@@ -31,17 +31,17 @@ void D2cControl::CommandmsgCallback(const d2c_robot_msgs::D2cRobot::ConstPtr& ms
     if (motion_num == 0.0) // Initialize 
     {
         //target_joint_position = serving_command.Initialize();
-        target_joint_position ={{1.1,1.1,1.1,1.1},{1.2,1.1,1.4,1.1},{1.1,1.1,1.1,1.1},{1.1,1.1,1.5,1.1}};
+        //test : target_joint_position ={{1.1,1.1,1.1,1.1},{1.2,1.1,1.4,1.1},{1.1,1.1,1.1,1.1},{1.1,1.1,1.5,1.1}};
     }
 
     else if (motion_num == 1.0) // Serving 
     {
         //target_joint_position = serving_command.ReturnTargetJointPosition();        
     }
-
+    
     else if (motion_num == 2.0) // Cleaning
     {
-        //target_joint_position = serving_command.ReturnTargetJointPosition(); 
+        target_joint_position = serving_command.ReturnTargetJointPosition(); 
     }
     
     d2c.motion = motion_num;

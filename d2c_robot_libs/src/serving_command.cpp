@@ -7,11 +7,14 @@ ServingCommand::~ServingCommand()
 {}
 
 
-std::vector<std::vector<double>> ServingCommand::ReturnTargetJointPosition(std::vector<int> object_position)
+std::vector<std::vector<double>> ServingCommand::ReturnTargetJointPosition()
 {
     std::vector<std::vector<double>> target_joint_position_;
     std::vector<double> object_position_;
-   // target_joint_position_ = InverseKinematics(object_position_);
+    // target position 1. before object 2. on object 3. up the object  
+    // target_joint_position_[0] = InverseKinematics(before_object_position_);
+    // target_joint_position_[1] = InverseKinematics(on_object_position_);
+    // target_joint_position_[2] = InverseKinematics(up_object_position_);
     return target_joint_position_;
 }
 
@@ -44,19 +47,32 @@ std::vector<double> ServingCommand::InverseKinematics(std::vector<double> final_
     double a2 = atan2(sqrt(x*x+y*y),z);
     theta4 = 3.14/2-a1-a2;
 
-    joint_state_ = {-theta1, -theta2, theta3, theta4};
+    joint_state_ = {-theta1, -theta2, theta3, theta4 };
 
     return joint_state_;
 }
+// TODO 1. get the object position and transform the coordinate - TransformCoordinate()
+// TODO 2. devide object position to 3 position and contain to variables - SetTargetPosition()
 
-std::vector<float> ServingCommand::SetTargetPosition()
+std::vector<int> ServingCommand::TransformCoordinate()
 {
-    std::vector<float> object_position;
+    std::vector<int> serving_position;
+    int x = object_x_;
+    int y = object_y_;
+    // transform coordination 
+    
+    serving_position = {x,y};
 
-    //TODO : get the information of object, and save into object_position variable
-    //TODO :  
+    return serving_position;
+}
+
+std::vector<std::vector<double>> ServingCommand::SetTargetPosition()
+{
+    std::vector<std::vector<double>> object_position;
+
+    // TODO : get the information of object, and save into object_position variable
      
-
+    // TODO : target position 1. before object 2. on object 3. up the object 
     return object_position;
 }
 
@@ -67,16 +83,7 @@ std::vector<float> ServingCommand::Initialize()
     return initialize_position;
 }
 
-std::vector<int> ServingCommand::TransformCoordinate()
-{
-    std::vector<int> serving_position;
-    int x = object_x_;
-    int y = object_y_;
-    // transform coordination 
-    serving_position = {x,y};
 
-    return serving_position;
-}
 
 std::vector<float> ServingCommand::Cleaning()
 {
