@@ -24,12 +24,7 @@ void D2cControl::controlLoop(const ros::TimerEvent& event)
 
 void D2cControl::CommandmsgCallback(const d2c_robot_msgs::D2cRobot::ConstPtr& msg)
 {
-    Eigen::Matrix3d m1, m2;
-    Eigen::Vector3d v1(1,1,0);
-    Eigen::Vector3d v2;
-    m1 = serving_command.Rx(-3.14/2);
-    m2 = serving_command.Ry(3.14/2);
-   std::cout << m2*m1*v1 <<std::endl;
+
     float motion_num = msg -> motion_command;
     ROS_INFO("Command info: %f", motion_num);
 
@@ -46,6 +41,7 @@ void D2cControl::CommandmsgCallback(const d2c_robot_msgs::D2cRobot::ConstPtr& ms
     
     else if (motion_num == 2.0) // Cleaning // TODO : bool && needed to confirm object position is getted
     {
+        target_joint_position = serving_command.ReturnTargetJointPosition(); 
         for(int i = 0; i < 2; i++)
         {
             d2c_robot_msgs::JointPosition position_info;
@@ -56,7 +52,7 @@ void D2cControl::CommandmsgCallback(const d2c_robot_msgs::D2cRobot::ConstPtr& ms
             }
             d2c.joint_position.push_back(position_info);
         }
-        target_joint_position = serving_command.ReturnTargetJointPosition(); 
+
     }
     
     d2c.motion = motion_num;
@@ -85,6 +81,7 @@ void D2cControl::ObjectmsgCallback(const darknet_ros_msgs::BoundingBoxes::ConstP
         serving_command.object_x_ = object_x;
         serving_command.object_y_ = object_y;
         ROS_INFO("%d, %d", object_x, object_y);
+        
  
     }
     //std::vector<float> dd = serving_command.ReturnTargetJointPosition(xmin, ymin, xmax, ymax);

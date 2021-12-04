@@ -22,7 +22,7 @@ class ServingCommand
         Eigen::Matrix3d Ry(double theta);
         Eigen::Matrix3d Rz(double theta);
         Eigen::Matrix4d Tm(double theta, double px,double py,double pz);
-        
+        double x_f, y_f;
         
         int object_x_, object_y_;
 
@@ -37,7 +37,8 @@ class ServingCommand
         Eigen::Matrix3d R_z;
         Eigen::Matrix4d T_m;
         Eigen::Matrix3d R_m;
-        Eigen::Matrix3d P_m; //Perspective Matrix
+        Eigen::Matrix3d P_m ;
+; //Perspective Matrix
 
         double world2camera_x = 10.0;
         double world2camera_y = 10.0;
@@ -49,7 +50,7 @@ class ServingCommand
 
         double Z_c, focal_length;
 
-        double x_f, y_f;
+
 
 };
 

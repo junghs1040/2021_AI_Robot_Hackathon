@@ -63,7 +63,11 @@ std::vector<double> ServingCommand::TransformCoordinate() // transform coordinat
     std::vector<double> serving_position;
     double x = (double)object_x_;
     double y = (double)object_y_;
-    
+    P_m << 1.83170838e+00, 8.09496928e-01, -2.84984280e+02,
+           -2.69219180e-02, 4.73825757e+00, -1.52566509e+02, 
+           -1.57744341e-04, 2.82588407e-03, 1.00000000e+00;
+
+
     double p11 = P_m(0,0);
     double p12 = P_m(0,1);
     double p13 = P_m(0,2);
@@ -79,29 +83,37 @@ std::vector<double> ServingCommand::TransformCoordinate() // transform coordinat
     x_f = (p11*x +p12*y + p13)/(p31*x + p32*y + p33);
     y_f = (p21*x +p22*y + p23)/(p31*x + p32*y + p33);
     //double x_c, y_c, x_w, y_w;
- 
+    double x_f_ = (330.0-(x_f)*(330.0/634.0*1.8));
+    double y_f_ = (390.0-(y_f)*(390.0/749.0));
+    
     //Eigen::Matrix4d T_m_ = Tm(world2camera_theta, world2camera_x, world2camera_y, world2camera_z);
     
     //x_c = ((x-c_x)*Z_c)/focal_length;
     //y_c = ((y-c_y)*Z_c)/focal_length;
-    
-    serving_position = {x_f,y_f};
-
+    ROS_INFO("%f, %f", x_f_, y_f_);
+    serving_position = {x_f_,y_f_};
+ 
     return serving_position;
 }
 
 std::vector<std::vector<double>> ServingCommand::SetTargetPosition(std::vector<double> ob_position)
 {
+  
     std::vector<double> position_info_ = ob_position;
     std::vector<std::vector<double>> object_position;
+    std::vector<double> p1;
+    std::vector<double> p2;
+    std::vector<double> p3;
     std::vector<double> final_value1 = {position_info_[0],position_info_[1], 0.0};
     std::vector<double> final_value2 = {position_info_[0],position_info_[1], 10.0};
-     
-    object_position[0]= InverseKinematics(final_value1);
-    object_position[1]= InverseKinematics(final_value1);
-    object_position[2]= InverseKinematics(final_value2);
-    
-    object_position[0][0]= object_position[0][0]+ 3.14/4;
+ 
+    p1 = InverseKinematics(final_value1);
+    p2 = InverseKinematics(final_value1);
+    p3 = InverseKinematics(final_value2);
+    object_position ={p1,p2,p3};
+
+    object_position[0][0]= object_position[0][0]+ 3.14/2;
+
     // TODO : get the information of object, and save into object_position variable
     // TODO : target position 1. before object 2. on object 3. up the object 
     return object_position;
