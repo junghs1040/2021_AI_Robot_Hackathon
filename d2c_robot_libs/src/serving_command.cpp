@@ -64,7 +64,7 @@ std::vector<double> ServingCommand::TransformCoordinate() // transform coordinat
     double x = (double)object_x_;
     double y = (double)object_y_;
     P_m << 1.83170838e+00, 8.09496928e-01, -2.84984280e+02,
-           -2.69219180e-02, 4.73825757e+00, -1.52566509e+02, 
+           -2.69219180e-02, 4.73825757e+00,-1.52566509e+02, 
            -1.57744341e-04, 2.82588407e-03, 1.00000000e+00;
 
 
@@ -91,7 +91,7 @@ std::vector<double> ServingCommand::TransformCoordinate() // transform coordinat
     //x_c = ((x-c_x)*Z_c)/focal_length;
     //y_c = ((y-c_y)*Z_c)/focal_length;
     ROS_INFO("%f, %f", x_f_, y_f_);
-    serving_position = {x_f_,y_f_};
+    serving_position = {-x_f_, y_f_};
  
     return serving_position;
 }
