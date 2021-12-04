@@ -11,6 +11,10 @@ std::vector<std::vector<double>> ServingCommand::ReturnTargetJointPosition()
 {
     std::vector<std::vector<double>> target_joint_position_;
     std::vector<double> object_position_;
+
+    object_position_ = TransformCoordinate();
+
+    target_joint_position_ = SetTargetPosition(object_position_);
     // target position 1. before object 2. on object 3. up the object  
     // target_joint_position_[0] = InverseKinematics(before_object_position_);
     // target_joint_position_[1] = InverseKinematics(on_object_position_);
@@ -54,24 +58,51 @@ std::vector<double> ServingCommand::InverseKinematics(std::vector<double> final_
 // TODO 1. get the object position and transform the coordinate - TransformCoordinate()
 // TODO 2. devide object position to 3 position and contain to variables - SetTargetPosition()
 
-std::vector<int> ServingCommand::TransformCoordinate()
+std::vector<double> ServingCommand::TransformCoordinate() // transform coordination 
 {
-    std::vector<int> serving_position;
-    int x = object_x_;
-    int y = object_y_;
-    // transform coordination 
+    std::vector<double> serving_position;
+    double x = (double)object_x_;
+    double y = (double)object_y_;
     
-    serving_position = {x,y};
+    double p11 = P_m(0,0);
+    double p12 = P_m(0,1);
+    double p13 = P_m(0,2);
+
+    double p21 = P_m(1,0);
+    double p22 = P_m(1,1);
+    double p23 = P_m(1,2);
+
+    double p31 = P_m(2,0);
+    double p32 = P_m(2,1);
+    double p33 = P_m(2,2);
+    
+    x_f = (p11*x +p12*y + p13)/(p31*x + p32*y + p33);
+    y_f = (p21*x +p22*y + p23)/(p31*x + p32*y + p33);
+    //double x_c, y_c, x_w, y_w;
+ 
+    //Eigen::Matrix4d T_m_ = Tm(world2camera_theta, world2camera_x, world2camera_y, world2camera_z);
+    
+    //x_c = ((x-c_x)*Z_c)/focal_length;
+    //y_c = ((y-c_y)*Z_c)/focal_length;
+    
+    serving_position = {x_f,y_f};
 
     return serving_position;
 }
 
-std::vector<std::vector<double>> ServingCommand::SetTargetPosition()
+std::vector<std::vector<double>> ServingCommand::SetTargetPosition(std::vector<double> ob_position)
 {
+    std::vector<double> position_info_ = ob_position;
     std::vector<std::vector<double>> object_position;
+    std::vector<double> final_value1 = {position_info_[0],position_info_[1], 0.0};
+    std::vector<double> final_value2 = {position_info_[0],position_info_[1], 10.0};
      
+    object_position[0]= InverseKinematics(final_value1);
+    object_position[1]= InverseKinematics(final_value1);
+    object_position[2]= InverseKinematics(final_value2);
+    
+    object_position[0][0]= object_position[0][0]+ 3.14/4;
     // TODO : get the information of object, and save into object_position variable
-     
     // TODO : target position 1. before object 2. on object 3. up the object 
     return object_position;
 }
@@ -119,4 +150,16 @@ Eigen::Matrix3d ServingCommand::Rz(double theta)
            0.0, 0.0, 1.0;
 
     return R_z;
+}
+
+Eigen::Matrix4d ServingCommand::Tm(double theta, double px,double py,double pz)
+{
+    R_m = Rx(theta)*Ry(3.14/2)*Rz(-3.14/2);
+    T_m << 0.0, 0.0, 0.0, px,
+           0.0, 0.0, 0.0, py,
+           0.0, 0.0, 0.0, pz,
+           0.0, 0.0, 0.0, 1.0;
+
+    T_m.block(0,0,3,3) = R_m;
+    return T_m;
 }

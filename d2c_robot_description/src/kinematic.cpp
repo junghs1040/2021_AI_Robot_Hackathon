@@ -25,7 +25,7 @@ int main(int argc, char** argv)
 
     std::vector<std::string> joint_name = {"joint1", "joint2", "joint3", "joint4"};
     std::vector<double> joint = {0.0, 0.0, 0.0};
-    std::vector<double> pose = {200.0, -100.0, 0.0}; // when test publish is fine - >//
+    std::vector<double> pose = {125.0, -200.0, 80.0}; // when test publish is fine - >//
 
     std::vector<double> joint_position = robot.Leg_IK(pose);
 

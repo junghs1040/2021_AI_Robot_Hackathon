@@ -85,6 +85,7 @@ void D2cControl::ObjectmsgCallback(const darknet_ros_msgs::BoundingBoxes::ConstP
         serving_command.object_x_ = object_x;
         serving_command.object_y_ = object_y;
         ROS_INFO("%d, %d", object_x, object_y);
+ 
     }
     //std::vector<float> dd = serving_command.ReturnTargetJointPosition(xmin, ymin, xmax, ymax);
     
