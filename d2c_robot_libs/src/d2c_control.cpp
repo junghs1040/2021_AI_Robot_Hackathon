@@ -42,7 +42,9 @@ void D2cControl::CommandmsgCallback(const d2c_robot_msgs::D2cRobot::ConstPtr& ms
     else if (motion_num == 2.0) // Cleaning // TODO : bool && needed to confirm object position is getted
     {
         target_joint_position = serving_command.ReturnTargetJointPosition(); 
-        for(int i = 0; i < 2; i++)
+        ROS_INFO("%f, %f, %f,%f",target_joint_position[2][0], target_joint_position[2][1],target_joint_position[2][2],target_joint_position[2][3]);
+        
+        for(int i = 0; i < 3; i++)
         {
             d2c_robot_msgs::JointPosition position_info;
 
@@ -56,7 +58,6 @@ void D2cControl::CommandmsgCallback(const d2c_robot_msgs::D2cRobot::ConstPtr& ms
     }
     
     d2c.motion = motion_num;
-    d2c.position_info = something;
     
     ROS_INFO("Command info: %f", motion_num);
     dynamixel_command_publisher.publish(d2c);
@@ -80,11 +81,11 @@ void D2cControl::ObjectmsgCallback(const darknet_ros_msgs::BoundingBoxes::ConstP
         object_y = (ymin+ymax)/2;
         serving_command.object_x_ = object_x;
         serving_command.object_y_ = object_y;
-        ROS_INFO("%d, %d", object_x, object_y);
+        ROS_INFO(" object detected! ");
         
  
     }
-    //std::vector<float> dd = serving_command.ReturnTargetJointPosition(xmin, ymin, xmax, ymax);
+    // std::vector<float> dd = serving_command.ReturnTargetJointPosition(xmin, ymin, xmax, ymax);
     
 }
 
