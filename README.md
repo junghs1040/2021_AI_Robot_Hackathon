@@ -59,7 +59,17 @@ $ git clone https://github.com/junghs1040/dynamixel-workbench.git
 </code>
 </pre>
 
+#### < YOLOv3-tiny bowl detection >
+roslaunch the package to turn on the YOLO object detection and use the usb camera
+<pre>
+<code>
+$ roslaunch darknet_ros darknet_ros.launch
+$ roslaunch usb_cam usb_cam-test.launch
+</code>
+</pre>
+
 #### < d2c robot control >
+roslaunch the package to control the robot and dynamixel
 <pre>
 <code>
 $ roslaunch d2c_robot_libs d2c_robot.launch //keyboard control
@@ -72,13 +82,14 @@ q: initialization (put manipulator aside to detect the object by camera)
 w: serving motion
 e: cleaning motion (when he object are detected)
 
-#### < YOLOv3-tiny boul detection >
-<pre>
-<code>
-$ roslaunch darknet_ros darknet_ros.launch
-$ roslaunch usb_cam usb_cam-test.launch
-</code>
-</pre>
+### 1. Serving motion 
+you can see that robot serving motion to pre defined coordinate
+<iframe width="1280" height="720" src="https://www.youtube.com/embed/FxkeqOVxc3M" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+### 1. Cleaning motion 
+first the robot detected the object(bowl), then he robot clean the bowl by moving to object's coordinate.
+<iframe width="1280" height="720" src="https://www.youtube.com/embed/MeFMGXxcLSg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 
 ## 5. Team Information
 - Jung Hwan Seok (Hanyang univ. Mechanical Engineering) 
