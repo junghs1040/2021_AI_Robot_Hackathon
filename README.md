@@ -50,6 +50,15 @@ $ roslaunch d2c_robot_description display.launch
 
 ![mail naver com](https://user-images.githubusercontent.com/19335771/142581467-6c7ccb58-d063-4bc8-b28f-a68cbcc55d91.jpeg)
 
+#### clone the related and essenial packages
+<pre>
+<code>
+$ git clone https://github.com/leggedrobotics/darknet_ros.git
+$ git clone https://github.com/ROBOTIS-GIT/DynamixelSDK.git
+$ git clone https://github.com/junghs1040/dynamixel-workbench.git
+</code>
+</pre>
+
 #### < d2c robot control >
 <pre>
 <code>
@@ -58,6 +67,10 @@ $ roslaunch dynamixel_workbench_controller dynamixel_controller.launch
 $ roslaunch dynamixel_workbench_operator my_operator.launch
 </code>
 </pre>
+you can control the robot by keyboard key (q,w,e) 
+q: initialization (put manipulator aside to detect the object by camera)
+w: serving motion
+e: cleaning motion (when he object are detected)
 
 #### < YOLOv3-tiny boul detection >
 <pre>
