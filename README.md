@@ -84,7 +84,7 @@ e: cleaning motion (when he object are detected)
 
 ### 1. Serving motion 
 you can see that robot serving motion to pre defined coordinate
-<center><img src="https://user-images.githubusercontent.com/19335771/156920406-d2a35c0c-3754-4a06-9626-7dd8cddfd078.PNG" width="300" height="300"></center>
+<center><img src="https://user-images.githubusercontent.com/19335771/156920406-d2a35c0c-3754-4a06-9626-7dd8cddfd078.PNG" width="100%" height="100%"></center>
 ![s](https://user-images.githubusercontent.com/19335771/156920406-d2a35c0c-3754-4a06-9626-7dd8cddfd078.PNG)
 Youtube link: https://www.youtube.com/watch?v=FxkeqOVxc3M
 
