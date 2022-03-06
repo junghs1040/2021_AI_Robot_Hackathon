@@ -20,9 +20,10 @@ Hardware Information:
 
 ## 1. Project Introduction
 Serving robots that are currently applied to most restaurants are half-automatic.
-When serving, the robot brings the bowl to the side of the table, but the customer has to move the bowl to the table by himself.
-The biggest problem is that you absolutely need staff to pick up the bowls.
-So, restaurant operators who currently use serving robots on the market require additional staff even if they have robots.
+When serving, the robot brings the dishes to the side of the table, and the customer has to move the dishes to the table by himself.
+or restaurant staff came to serve the dishes from robot to table.
+The biggest problem is that you absolutely need staff to clean up the table.
+So, restaurant operators who currently use serving robots nowdays require additional staff even if they have robots.
 
 #### These problems can be solved with Fully-Automatic Serving Robot.
 ## 2. Features
@@ -89,8 +90,9 @@ Youtube link: https://www.youtube.com/watch?v=FxkeqOVxc3M
 
 ### 1. Cleaning motion 
 first the robot detected the object(bowl), then he robot clean the bowl by moving to object's coordinate.
+<center><img src="https://user-images.githubusercontent.com/19335771/156920596-83da5f2b-0f96-45dd-8288-b7c68ee72678.PNG" width="70%" height="70%"></center>
+Youtube link: https://www.youtube.com/watch?v=MeFMGXxcLSg
 
-Youtube link: "https://www.youtube.com/embed/MeFMGXxcLSg"
 
 
 ## 5. Team Information
