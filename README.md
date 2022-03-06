@@ -48,7 +48,7 @@ $ roslaunch d2c_robot_description display.launch
 </code>
 </pre>
 
-![mail naver com](https://user-images.githubusercontent.com/19335771/142581467-6c7ccb58-d063-4bc8-b28f-a68cbcc55d91.jpeg)
+<center><img src="https://user-images.githubusercontent.com/19335771/142581467-6c7ccb58-d063-4bc8-b28f-a68cbcc55d91.jpeg" width="70%" height="70%"></center>
 
 #### clone the related and essenial packages
 <pre>
@@ -85,7 +85,6 @@ e: cleaning motion (when he object are detected)
 ### 1. Serving motion 
 you can see that robot serving motion to pre defined coordinate
 <center><img src="https://user-images.githubusercontent.com/19335771/156920406-d2a35c0c-3754-4a06-9626-7dd8cddfd078.PNG" width="70%" height="70%"></center>
-![s](https://user-images.githubusercontent.com/19335771/156920406-d2a35c0c-3754-4a06-9626-7dd8cddfd078.PNG)
 Youtube link: https://www.youtube.com/watch?v=FxkeqOVxc3M
 
 ### 1. Cleaning motion 
