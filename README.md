@@ -48,7 +48,7 @@ $ roslaunch d2c_robot_description display.launch
 </code>
 </pre>
 
-![mail naver com](https://user-images.githubusercontent.com/19335771/142581467-6c7ccb58-d063-4bc8-b28f-a68cbcc55d91.jpeg)
+![mail naver com](https://user-images.githubusercontent.com/19335771/142581467-6c7ccb58-d063-4bc8-b28f-a68cbcc55d91.jpeg){: width="70%" height="70%"}
 
 #### clone the related and essenial packages
 <pre>
