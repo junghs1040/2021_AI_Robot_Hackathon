@@ -85,12 +85,12 @@ e: cleaning motion (when he object are detected)
 ### 1. Serving motion 
 you can see that robot serving motion to pre defined coordinate
 
-<iframe width="1280" height="720" src="https://www.youtube.com/embed/FxkeqOVxc3M" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+Youtube link: "https://www.youtube.com/embed/FxkeqOVxc3M"
 
 ### 1. Cleaning motion 
 first the robot detected the object(bowl), then he robot clean the bowl by moving to object's coordinate.
 
-<iframe width="1280" height="720" src="https://www.youtube.com/embed/MeFMGXxcLSg" frameborder="0" gesture="media" allowfullscreen=""></iframe>
+Youtube link: "https://www.youtube.com/embed/MeFMGXxcLSg"
 
 
 ## 5. Team Information
