@@ -1,6 +1,6 @@
 # 2021 AI Robot Hackathon in MAGOK
 ### Team D2C : Fully Automatic Serving Robot
-( we won the Encouragement prize! )
+( we won the Encouragement prize! )     
 [![melodic-devel Status](https://github.com/ROBOTIS-GIT/dynamixel-workbench/workflows/melodic-devel/badge.svg)](https://github.com/ROBOTIS-GIT/dynamixel-workbench/tree/melodic-devel)
 
 Required version(tested):
